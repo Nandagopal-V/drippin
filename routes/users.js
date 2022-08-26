@@ -210,7 +210,7 @@ router.get('/signup',(req, res) => {
 //get otp signin
 router.get('/signupotp', (req, res) => {
   try{
-  res.render('user/signupotp', { footerstate: true });
+  res.render('user/signupotp', { footerstat: true ,userasset: true,login1: true, });
 }catch(err){
   res.render('error')
 }
