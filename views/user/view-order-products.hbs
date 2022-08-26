@@ -1,0 +1,20 @@
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">SI no</th>
+      <th scope="col">product</th>
+      <th scope="col">name</th>
+      <th scope="col">quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each productsinv}}
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+      <td > <img src=" /product-images/{{this.image.[0]}}" alt="" style="height: 150px; width: 150px;"> </td>
+      <td>{{this.name}}</td>
+      <td>{{this.quantity}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,402 @@
+{{!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/banner/mensbanner.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/banner/mensbanner.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/banner/mensbanner.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div> --}}
+{{!-- <style>
+    body {
+        scroll-behavior: smooth !important;
+    }
+</style> --}}
+
+
+
+
+<div class="slider-area">
+    <div class="slider-active owl-carousel">
+        {{#each banner}}
+        <div class="food-slider bg-img slider-height-5" style="background-image: url(/product-images/{{this.bannerimage}})">
+            <div class="container">
+                <div class="food-slider-content text-center fadeinup-animated">
+                
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{!-- <div class="food-slider bg-img slider-height-5" style="background-image: url(/assets/img/slider/18.jpg)">
+            <div class="container">
+                <div class="food-slider-content text-center fadeinup-animated">
+                    <img class="animated" src="assets/img/slider/6.png" alt="">
+                    <p class="animated">Lorem Ipsum is simply dummy text of the printing dummy and typesetting industry.
+                    </p>
+                    <a class="food-slider-btn animated" href="#">Shop Now</a>
+                </div>
+            </div>
+        </div> --}}
+    </div>
+</div>
+
+
+<div class="product-area pt-115 pb-120">
+    <div class="pl-100 pr-100">
+        <div class="container-fluid">
+            <div class="section-title text-center mb-60">
+                <h2>New Arrivals</h2>
+            </div>
+            {{!-- have a nice dayy --}}
+            <div class="product-style">
+
+                <div class="arrival-active owl-carousel">
+                    {{#each latest}}
+
+                    <div class="product-wrapper">
+                        <div class="product-img">
+                            <a href="/productDetails/{{this._id}}">
+                                <img src="/product-images/{{this.image.[0]}}" alt=""
+                                    style="height: 400px; height: 390px;">
+                            </a>
+                            {{!-- <span>hot</span> --}}
+                            <div class="product-action">
+                                <a class="animate-left" title="Wishlist" href="#">
+                                    <i class="pe-7s-like"></i>
+                                </a>
+                                <a class="animate-top" title="Add To Cart" href="#">
+                                    <i class="pe-7s-cart"></i>
+                                </a>
+                                <a class="animate-right" title="Quick View" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" href="#">
+                                    <i class="pe-7s-look"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        {{#if this.discountstatus}}
+                        <div class="product-content text-center">
+                            <h4><a href="product-details.html" style="text-align: center;"> {{this.Name}}</a></h4>
+                            <span style="text-align: center;">₹ <del> {{this.Price}}</del> {{this.priceafterdiscount}}<p
+                                    style="text-align: center; color: green;">offer {{this.discountpercent}}%</p></span>
+                        </div>
+
+
+                        {{else}}
+
+
+
+                        <div class="product-content text-center">
+                            <h4><a href="product-details.html" style="text-align: center;"> {{this.Name}}</a></h4>
+                            <span style="text-align: center;;">₹{{this.Price}}</span>
+                        </div>
+                        {{/if}}
+
+
+                    </div>
+                    {{/each}}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- all products area start -->
+<div class="all-products-area pt-115 pb-50" id="allp">
+    <div class="pl-100 pr-100">
+        <div class="container-fluid">
+            <div class="section-title text-center mb-60">
+                <h2>All Products</h2>
+            </div>
+            <div class="product-style">
+                <div class="product-tab-list text-center mb-95 nav product-menu-mrg" role="tablist">
+                    <a class="active" href="#home1" data-bs-toggle="tab" role="tab" aria-selected="true"
+                        aria-controls="home1">
+                        <h4>all </h4>
+                    </a>
+                    <a href="#home2" data-bs-toggle="tab" role="tab" aria-selected="false" aria-controls="home2">
+                        <h4>Shirt </h4>
+                    </a>
+                    <a href="#home3" data-bs-toggle="tab" role="tab" aria-selected="false" aria-controls="home3">
+                        <h4>Pants</h4>
+                    </a>
+                    <a href="#home4" data-bs-toggle="tab" role="tab" aria-selected="false" aria-controls="home4">
+                        <h4>Jean</h4>
+                    </a>
+                    <a href="#home5" data-bs-toggle="tab" role="tab" aria-selected="false" aria-controls="home5">
+                        <h4>T-shirt</h4>
+                    </a>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="home1" role="tabpanel">
+                        <div class="custom-row">
+
+                            {{#each data}}
+                            <div class="custom-col-5 custom-col-style mb-65 text-center">
+                                <div class="product-wrapper">
+                                    <div class="product-img">
+                                        <a href="/productDetails/{{this._id}}">
+
+                                            <img src="/product-images/{{this.image.[0]}}" alt=""
+                                                style="height: 300px; width: 270px;">
+                                        </a>
+                                        <div class="product-action">
+                                            <a class="animate-left" title="Wishlist" href="#">
+                                                <i class="pe-7s-like"></i>
+                                            </a>
+                                            <a class="animate-top" title="Add To Cart" href="#">
+                                                <i class="pe-7s-cart"></i>
+                                            </a>
+                                            <a class="animate-right" title="Quick View" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" href="#">
+                                                <i class="pe-7s-look"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{#if this.discountstatus}}
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ <del> {{this.Price}}</del>
+                                            {{this.priceafterdiscount}}<p style="text-align: center; color: green;">
+                                                offer {{this.discountpercent}}%</p></span>
+                                    </div>
+                                    {{else}}
+
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ {{this.Price}}</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane  show fade" id="home2" role="tabpanel">
+                        <div class="custom-row">
+
+                            {{#each shirts}}
+                            <div class="custom-col-5 custom-col-style mb-65 text-center">
+                                <div class="product-wrapper">
+                                    <div class="product-img">
+                                        <a href="/productDetails/{{this._id}}">
+
+                                            <img src="/product-images/{{this.image.[0]}}" alt="">
+                                        </a>
+                                        <div class="product-action">
+                                            <a class="animate-left" title="Wishlist" href="#">
+                                                <i class="pe-7s-like"></i>
+                                            </a>
+                                            <a class="animate-top" title="Add To Cart" href="#">
+                                                <i class="pe-7s-cart"></i>
+                                            </a>
+                                            <a class="animate-right" title="Quick View" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" href="#">
+                                                <i class="pe-7s-look"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{#if this.discountstatus}}
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ <del> {{this.Price}}</del>
+                                            {{this.priceafterdiscount}}<p style="text-align: center; color: green;">
+                                                offer {{this.discountpercent}}%</p></span>
+                                    </div>
+                                    {{else}}
+
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ {{this.Price}}</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane  show fade" id="home3" role="tabpanel">
+                        <div class="custom-row">
+
+                            {{#each pants}}
+                            <div class="custom-col-5 custom-col-style mb-65 text-center">
+                                <div class="product-wrapper">
+                                    <div class="product-img">
+                                        <a href="/productDetails/{{this._id}}">
+
+                                            <img src="/product-images/{{this.image.[0]}}" alt="">
+                                        </a>
+                                        <div class="product-action">
+                                            <a class="animate-left" title="Wishlist" href="#">
+                                                <i class="pe-7s-like"></i>
+                                            </a>
+                                            <a class="animate-top" title="Add To Cart" href="#">
+                                                <i class="pe-7s-cart"></i>
+                                            </a>
+                                            <a class="animate-right" title="Quick View" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" href="#">
+                                                <i class="pe-7s-look"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{#if this.discountstatus}}
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ <del> {{this.Price}}</del>
+                                            {{this.priceafterdiscount}}<p style="text-align: center;color: green;">offer
+                                                {{this.discountpercent}}%</p></span>
+                                    </div>
+                                    {{else}}
+
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ {{this.Price}}</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+
+
+                    <div class="tab-pane  show fade" id="home4" role="tabpanel">
+                        <div class="custom-row">
+
+                            {{#each jeans}}
+                            <div class="custom-col-5 custom-col-style mb-65 text-center">
+                                <div class="product-wrapper">
+                                    <div class="product-img">
+                                        <a href="/productDetails/{{this._id}}">
+
+                                            <img src="/product-images/{{this.image.[0]}}" alt=""
+                                                style="height: 300px; width: 270px;">
+                                        </a>
+                                        <div class="product-action">
+                                            <a class="animate-left" title="Wishlist" href="#">
+                                                <i class="pe-7s-like"></i>
+                                            </a>
+                                            <a class="animate-top" title="Add To Cart" href="#">
+                                                <i class="pe-7s-cart"></i>
+                                            </a>
+                                            <a class="animate-right" title="Quick View" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" href="#">
+                                                <i class="pe-7s-look"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{#if this.discountstatus}}
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ <del> {{this.Price}}</del>
+                                            {{this.priceafterdiscount}}<p style="text-align: center; color: green;">
+                                                offer {{this.discountpercent}}%</p></span>
+                                    </div>
+                                    {{else}}
+
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ {{this.Price}}</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+
+
+                    <div class="tab-pane  show fade" id="home5" role="tabpanel">
+                        <div class="custom-row">
+
+                            {{#each tshirts}}
+                            <div class="custom-col-5 custom-col-style mb-65 text-center">
+                                <div class="product-wrapper">
+                                    <div class="product-img">
+                                        <a href="/productDetails/{{this._id}}">
+
+                                            <img src="/product-images/{{this.image.[0]}}" alt=""
+                                                style="height: 300px; width: 270px;">
+                                        </a>
+                                        <div class="product-action">
+                                            <a class="animate-left" title="Wishlist" href="#">
+                                                <i class="pe-7s-like"></i>
+                                            </a>
+                                            <a class="animate-top" title="Add To Cart" href="#">
+                                                <i class="pe-7s-cart"></i>
+                                            </a>
+                                            <a class="animate-right" title="Quick View" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" href="#">
+                                                <i class="pe-7s-look"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{#if this.discountstatus}}
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ <del> {{this.Price}}</del>
+                                            {{this.priceafterdiscount}}<p style="text-align: center; color: green;">
+                                                offer {{this.discountpercent}}%</p></span>
+                                    </div>
+                                    {{else}}
+
+                                    <div class="product-content">
+                                        <h4><a href="product-details.html" style="text-align: center;">{{this.Name}}</a>
+                                        </h4>
+                                        <span style="text-align: center;">₹ {{this.Price}}</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- all products area end -->

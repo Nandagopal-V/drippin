@@ -1,0 +1,205 @@
+{{!-- <div class="register-area ptb-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 col-12 col-lg-12 col-xl-6 ms-auto me-auto">
+                        <div class="login">
+                            <div class="login-form-container" style="background-color:rgb(218, 218, 218) ;">
+                                <div class="login-form">
+                                    <form action="/signup" method="post">
+                                        <span id="user-name1"></span>
+                                        <input type="text"  id="user-name" name="name" placeholder="Username" onkeyup="validatename()">
+                                         <span id="user-password1"></span>
+                                        <input type="password" id="user-password" name="password" placeholder="Password" onkeyup="validatepassword()">
+                                         <span id="user-email1"></span>
+                                        <input id="user-email" name="mail" placeholder="Email" type="email" onkeyup="validateemail()">
+                                        <span id="user-phone1"></span>
+                                        <input type="text" placeholder="Phone" name="phone"  id="user-phone" onkeyup="validatephone()">
+                                        <input type="text" name="wallet" value="0" hidden>
+
+                                        {{#if existid}}
+                                        <p class="text-danger">Email-id exist</p>
+                                        {{/if}}
+                                        <div class="button-box">
+                                            <button type="submit" onclick=" return validateform()" class="default-btn floatright" style="border-color: rgb(0, 0, 0);">Register</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
+
+
+    <section class="vh-100 mb-5" style="background-color: #ffffff;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="/img/signuppic.jpg"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height:550px;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form action="/signup" method="POST">
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    {{!-- <span class="h1 fw-bold mb-0">Logo</span> --}}
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your Drippin Account </h5>
+
+                  <div class="form-outline mb-4">
+                    <input type="text"  id="user-name" name="name" placeholder="Username" class="form-control form-control-lg" onkeyup="validatename()"/>
+                                        <span id="user-name1"></span>
+
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="user-password" name="password" placeholder="Password" class="form-control form-control-lg" onkeyup="validatepassword()"/>
+                                         <span id="user-password1"></span>
+
+                  </div>
+
+                    <div class="form-outline mb-4">
+                    <input type="text" id="user-email" placeholder="Email address" name="mail" class="form-control form-control-lg" onkeyup="validateemail()"/>
+                                         <span id="user-email1"></span>
+
+                  </div>
+
+                    <div class="form-outline mb-4">
+                    <input type="text" name="phone"  id="user-phone" placeholder="Phone" class="form-control form-control-lg" onkeyup="validatephone()" />
+                                        <span id="user-phone1"></span>
+
+                  </div>
+
+                                        <input type="text" name="wallet" value="0" hidden>
+
+
+                   {{#if existid}}
+                                        <p class="text-danger">Email-id exist</p>
+                                        {{/if}}
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" onclick=" return validateform()">Submit</button>
+                  </div>
+
+                  {{!-- <a class="small text-muted" href="#!">Forgot password?</a> --}}
+                  
+                  
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+        <script>
+
+    function validatename(){
+        var nameError=document.getElementById('user-name1')
+  var name = document.getElementById('user-name').value;
+  if(name.length==0 || name==' '){
+    nameError.style.color="red";
+    nameError.innerHTML="Name cannot be empty";
+    return false;
+}
+if(name.length<=3 || name.length>=25){
+    nameError.style.color="red";
+    nameError.innerHTML="Name must be between 3 and 25 characters"
+    return false;
+}
+if(!name.match(/^[A-Za-z]*\s{0,1}[A-Za-z]*\s{0,1}?[A-Za-z]*$/)){
+    nameError.style.color="red";
+    nameError.innerHTML="Write Proper name"
+    return false;
+}
+else{
+nameError.innerHTML='Valid name';
+nameError.style.color="green";
+return true;
+}
+}
+
+function validatephone(){
+        var phoneError=document.getElementById('user-phone1')
+  var phone = document.getElementById('user-phone').value;
+  if(phone.length!=10){
+    phoneError.style.color="red";
+    phoneError.innerHTML="invalid number";
+    return false;
+}
+else
+if(phone.match(/^\d+$/)){
+    phoneError.style.color="green";
+    phoneError.innerHTML="valid number";
+    return true;
+}
+
+}
+
+function validatepassword(){
+        var passError=document.getElementById('user-password1')
+  var name = document.getElementById('user-password').value;
+  if(name.length==0 || name==' '){
+    passError.style.color="red";
+    passError.innerHTML="password cannot be empty";
+    return false;
+}
+if(name.length<=6){
+    passError.style.color="red";
+    passError.innerHTML="password must be minimum 6 characters"
+    return false;
+}
+else{
+    passError.style.color="green";
+passError.innerHTML='valid password';
+return true;
+}
+}
+function validateemail(){
+    var emailError=document.getElementById('user-email1')
+    var email=document.getElementById('user-email').value;
+    if(!email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))
+    {   emailError.style.color="red";
+        emailError.innerHTML="Enter valid Email ID";
+        return false;
+    }
+    else{
+        emailError.style.color="green";
+    emailError.innerHTML='valid email'
+    return true;
+    }
+  }
+
+  function validateform(){
+     {{!-- e.preventDefault() --}}
+      if(!validatename() || !validateemail() || !validatepassword() || !validatephone()){
+           alert('enter valid credential')
+          return false;
+      }  
+      return true;
+      
+  }
+
+
+
+
+
+
+
+
+</script>

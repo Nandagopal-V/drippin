@@ -1,0 +1,129 @@
+
+        <div class="cart-main-area pt-95 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1 class="cart-heading">Cart</h1>
+                        <form action="#">
+                            <div class="table-content table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>remove</th>
+                                            <th>images</th>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            {{!-- <th>Total</th> --}}
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        {{#each products}}
+                                        <tr>
+                                            <td class="product-remove"><button type="button" class="btn-close" aria-label="Close" onclick=" removeCartProduct('{{this._id}}','{{this.product._id}}') ; return confirm('Are you sure you would like to remove this from cart?');  "></button></td>
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img src="/product-images/{{this.product.image.[0]}}" alt="" style="height: 100px; width:75px ;"></a>
+                                            </td>
+                                            <td class="product-name"><a href="#">{{this.product.Name}}</a></td>
+
+                                           {{#if this.product.discountstatus}}
+                                             
+                                            <td class="product-price-cart"><span class="amount">$<del>{{this.product.Price}} </del>{{this.product.priceafterdiscount}}</span></td> 
+                                            {{else}}
+                                            <td class="product-price-cart"><span class="amount">${{this.product.Price}}</span></td>  
+                                            {{/if}}
+
+                                            <td class="product-quantity">
+                                                 <button class="cart-item-count mr-3" style="border: 1px;" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',-1)">-</button>
+                                                <span id="{{this.product._id}}"> {{this.quantity}}</span>
+                                                 <button class="cart-item-count mr-3"  style="border: 1px;" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',1)">+</button>
+                                            </td>
+                                           
+                                        </tr>
+                            
+                                    
+                                    {{/each}}</tbody>
+                                    
+                                </table>
+                            </div>
+                       
+                            <div class="row">
+                                <div class="col-md-5 ms-auto">
+                                    <div class="cart-page-total">
+                                        <h2>Cart totals</h2>
+                                        <ul>
+                                            <li>Sub Total<span id="deievryprice">₹{{total}}</span></li>
+                                        </ul>
+                                        <ul>
+                                            <li>Free delivery<span id="deievryprice">₹0</span></li>
+                                        </ul>
+                                        <ul>
+                                            <li>Total<span id="totalamount">₹{{total}}</span></li>
+                                        </ul>
+                                        <a href="checkout">Proceed to checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- shopping-cart-area end -->
+
+
+        
+        <script>
+            function changeQuantity(cartId,proId,userId,count){
+                let quantity=parseInt(document.getElementById(proId).innerHTML)
+                count=parseInt(count)
+                $.ajax({
+                    url:'/change-Quantity',
+                    data:{
+                        user:userId,
+                        cart:cartId,
+                        product:proId,
+                        count:count,
+                        quantity:quantity
+                    },
+
+                    method: "POST",
+                    success:(response)=>{
+                        if(response.removeProduct){
+                            alert("Product removed from cart");
+                            location.reload()
+                        }else
+                        if(response.status){
+                            document.getElementById(proId).innerHTML=quantity+count
+                            document.getElementById('totalamount').innerHTML=response.total[0].total
+
+                        }
+                        
+                    }
+                })
+            }
+
+            function removeCartProduct(cartId,proId){
+                $.ajax({
+                    url:'/remove-cart-product',
+                    data:{
+                        cart:cartId,
+                        product:proId
+                        
+                    },
+
+                    method: "POST",
+                    success:(response)=>{
+                       if(response.removeProduct){
+                            
+                            location.reload()
+                        }
+                        /* else{
+                            document.getElementById(proId).innerHTML=quantity+count
+                        }*/
+                        
+                    }
+                }) 
+            }
+        </script>

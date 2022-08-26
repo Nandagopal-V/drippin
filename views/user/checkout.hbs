@@ -1,0 +1,464 @@
+<!-- header end -->
+<div class="container">
+
+</div>
+
+<!-- checkout-area start -->
+<div class="checkout-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="coupon-accordion">
+                    <!-- ACCORDION START -->
+
+                    <!-- ACCORDION END -->
+                    <!-- ACCORDION START -->
+                    <h3>Have a coupon? <span id="showcoupon">Click here to enter your code {{#if expiredcoupon}} <span
+                                style="color: red;" class="ms-2">coupon has expired</span> {{/if}}
+                            {{#if invalidcoupon}} <span style="color: red;" class="ms-2">invalid coupon</span> {{/if}}
+                            {{#if couponused}} <span style="color: red;" class="ms-2">you have already used this
+                                coupon</span> {{/if}}</span></h3>
+
+                    <div id="checkout_coupon" class="coupon-checkout-content">
+                        <div class="coupon-info">
+                            <form action="/applyCoupon" method="post">
+                                <p class="checkout-coupon">
+                                    <input type="text" placeholder="Coupon code" name="code" />
+                                    <input type="submit" value="Apply Coupon" />
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    {{!-- {{#if expiredcoupon}} <span style="color: red;">coupon has expired</span> {{/if}}
+                    {{#if invalidcoupon}} <span style="color: red;">invalid coupon</span> {{/if}}
+                    {{#if couponused}} <span style="color: red;">you have already used this coupon</span> {{/if}} --}}
+                    <!-- ACCORDION END -->
+                </div>
+            </div>
+        </div>
+        <form  id="checkout-form">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="checkbox-form">
+                        <h3>Billing Details</h3>
+                        
+                        <div class="row">
+
+                            {{!-- <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Full name <span class="required">*</span></label>
+                                    <input type="text" name="name" placeholder="" />
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="checkout-form-list">
+                                    <label>Address <span class="required">*</span></label>
+                                    <input type="text" name="address" placeholder="Street address" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Postcode / Zip <span class="required">*</span></label>
+                                    <input name="pin" type="text" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Phone <span class="required">*</span></label>
+                                    <input name="phone" type="text" />
+                                    <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+                                </div>
+                            </div> --}}
+                                                      <input class="form-check-input" type="radio" name="addressid" 
+                                    id="flexRadioDefault1" style="width: 10px;height: 12px;" value="{{this._id}}" required hidden >  
+                                    
+                            {{#each address}}
+
+
+                            <div class="form-check">
+                                  
+                              
+                           
+
+
+
+                            <div class="accordion accordion-flush" id="{{this.id}}">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="{{this.id}}">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{@index}}"
+                                            aria-expanded="false" aria-controls="flush-collapseOne">
+
+                                                   <input class="form-check-input" type="radio" name="addressid" 
+                                    id="flexRadioDefault1" style="width: 10px;height: 12px;" value="{{this._id}}" checked >  
+                                    {{!-- <input type="text" name="userId" id="" value="{{this.uid}}" hidden> --}}
+
+                                 
+                                            {{this.name}} , {{this.address}}
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne{{@index}}" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Name : {{this.name}} <br>Address : {{this.address}}
+                                            <br>Phone : {{this.mobile}} <br>Pincode : {{this.pincode}}</div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                             </div>
+                            {{/each}}
+<a href="/userEditAddress"  class=" mt-3 btn btn-primary rounded">ADD ADDRESS</a>      
+
+
+                        </div>
+
+                    </div>
+                    <br>
+
+
+                    <div class="form-check">
+                        <input class="form-check-input" name="wallet" onclick="checkwallet({{totalfinal}})"
+                            type="checkbox" value="wallet" id="defaultCheck1">
+                        <label class="form-check-label fw-bold" for="defaultCheck1">
+                            Use Wallet <span class="text-success" id="walletbalance"> ({{user.wallet}}) </span>
+                        </label>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="your-order">
+                        <h3>Your order</h3>
+                        <div class="your-order-table table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-total">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each cartproducts}}
+                                    <tr class="cart_item">
+
+                                        <td class="product-name">
+                                            {{this.product.Name}} <strong class="product-quantity"> ×
+                                                {{this.quantity}}</strong>
+                                        </td>
+                                        <td class="product-total">
+                                            <span class="amount">₹{{this.product.Price}}</span>
+                                        </td>
+
+                                    </tr>
+                                    {{/each}}
+
+                                </tbody>
+                                <tfoot>
+                                    <tr class="cart-subtotal">
+                                        <th>Coupon Amount</th>
+                                        <td><span class="amount">-₹{{total2}}</span></td>
+                                    </tr>
+                                    <tr class="cart-subtotal">
+                                        <th>wallet</th>
+                                        <td><span class="amount" id="wallet">-₹{{amountafterwallet}}</span></td>
+                                    </tr>
+                                    <tr class="order-total">
+                                        <th>Order Total</th>
+                                        {{#if delstatus}}
+                                        <td><strong><span class="amount" id="totalfinal">₹ {{totalfinal}} <npsb>
+                                            <input:type id="discountAmount" value='{{totalfinal}}' hidden>
+                                                        <npsb><del>{{total1.[0].total}}</del></span></strong>
+                                            {{else}}
+                                        <td><strong><span class="amount" id="totalfinal">₹
+                                                    {{totalfinal}}</span></strong>
+                                            <input:type id="discountAmount"  value='{{totalfinal}}' hidden>
+
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="payment-method" >
+                            <div id="method">
+
+
+                            {{!-- {{#if wallet2stage}}
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="ONLINE razor" checked>
+                                Online Payment(razorpay)
+                            </label>
+                            <br>
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="ONLINE paypal" checked>
+                                Online Payment(paypal)
+                            </label>
+                            {{else}} --}}
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="ONLINE razor" checked>
+                                Online Payment(razorpay)
+                            </label>
+                            <br>
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="ONLINE paypal" checked>
+                                Online Payment(paypal)
+                            </label>
+                            <br>
+                            {{!-- <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="wallet" checked>
+                                Wallet
+                            </label> --}}
+                            {{!-- <br> --}}
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="COD" checked>
+                                Cash on Delivery
+                            </label>
+                            </div>
+
+                            <label class="radio-inline" hidden>
+                                <input type="radio" name="payment-method" value="wallet" checked hidden>
+                                Wallet
+                            </label>
+                            {{!-- {{/if}} --}}
+
+
+
+                            <div class="order-button-payment">
+                                <input type="submit" value="Place order" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- checkout-area end -->
+
+
+
+
+<style>
+    input[type=radio] {
+        width: 30px;
+        height: 30px;
+    }
+
+    label.radio-inline {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+
+
+
+
+<!-- all js here -->
+
+</body>
+
+</html>
+<script src="jquery-3.6.0.min.js"></script>
+
+   {{!-- <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script> --}}
+<script>
+    $("#checkout-form").submit((e) => {
+        e.preventDefault()
+        console.log('have a nice day')
+    let afterWallet=document.getElementById('totalfinal').value
+    console.log(afterWallet)
+        $.ajax({
+            url: '/place-order',
+            method: 'POST',
+            data:
+                 $('#checkout-form').serialize()+"&totalafterwallet1="+afterwallet+"&walletbalance="+afterwalletbal+"&walletdiscount="+walletdiscount,
+            
+            success: (response) => {
+                alert(response);
+                if (response.codeSuccess) {
+                    location.href = '/order-success'
+                }
+                else if (response.paypalsuccess) {
+
+
+                    {
+                        for (let i = 0; i < response.links.length; i++) {
+                            if (response.links[i].rel == 'approval_url') {
+                                location.href = response.links[i].href;
+                            }
+
+                        }
+
+                    }
+
+                }
+                else if (response.walletsuccess) {
+                   location.href = '/order-success'
+                }
+                else {
+                    razorpayPayment(response);
+                }
+
+            }
+        })
+    })
+
+
+
+
+    function razorpayPayment(order) {
+        var options = {
+            "key": "rzp_test_G99RqKoq7szDDO", // Enter the Key ID generated from the Dashboard
+            "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Drippin",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+                alert(response.razorpay_payment_id);
+                alert(response.razorpay_order_id);
+                alert(response.razorpay_signature);
+
+                verifyPayment(response, order)
+
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+
+    function verifyPayment(payment, order) {
+        $.ajax({
+            url: '/verify-payment',
+            data: {
+                payment,
+                order
+            },
+            method: 'post',
+            success: (response) => {
+                console.log('success back')
+                console.log(response)
+                if (response.status) {
+
+                    location.href = '/order-success'
+
+                }
+                else {
+                    alert('payment failed')
+
+                    location.href = '/getCart'
+
+                }
+            }
+        })
+    }
+
+
+     let afterwallet=0
+     let afterwalletbal=0
+     let walletdiscount=0
+    function checkwallet(amount) {
+        console.log(amount)
+        console.log('have a great day')
+        $.ajax({
+            url: '/checkWallet/' + amount,
+            method: 'get',
+            success: (response) => {
+
+                console.log(response.walletE)
+                if (response.walletE) {
+                    console.log('going to check')
+                    let isChecked = $('#defaultCheck1')[0].checked
+                    console.log('isChecked is',isChecked)
+                    if(isChecked){
+                    let walletamount = amount
+                    document.getElementById("wallet").innerHTML = "-₹" + walletamount
+                    document.getElementById('totalfinal').innerHTML = "₹" + 0
+                    document.getElementById('walletbalance').innerHTML = "₹" + (response.wallet-amount)
+                    document.getElementById('method').style = "display:none"
+                    afterwallet=0
+                    afterwalletbal=(response.wallet-amount)
+                    walletdiscount=walletamount
+
+                    
+                    }else{
+                    document.getElementById("wallet").innerHTML = "₹" + 0
+                    document.getElementById('totalfinal').innerHTML = "₹" + amount
+                    document.getElementById('walletbalance').innerHTML = "₹" + response.wallet
+                    document.getElementById('method').style = "display:table-row"
+                    afterwallet=amount
+                    afterwalletbal=response.wallet
+                    walletdiscount=0
+
+                    
+                        
+                    }
+
+
+
+
+                }
+                else {
+                      console.log('going to check else')
+                    let isChecked = $('#defaultCheck1')[0].checked
+                    console.log('isChecked is else',isChecked)
+
+                      if(isChecked){
+                    let walletamount = amount
+                    document.getElementById("wallet").innerHTML = "-₹" + (response.wallet)
+                    document.getElementById('totalfinal').innerHTML = "₹" + (amount-response.wallet)
+                    document.getElementById('walletbalance').innerHTML = "₹" + 0
+                    afterwallet=(amount-response.wallet)
+                    afterwalletbal=0
+                    walletdiscount= (response.wallet)
+
+
+
+
+                    }else{
+                    document.getElementById("wallet").innerHTML = "₹" + 0
+                    document.getElementById('totalfinal').innerHTML = "₹" + amount
+                    document.getElementById('walletbalance').innerHTML = "₹" + response.wallet
+                    afterwallet=(response.wallet)
+                    afterwalletbal=response.wallet
+                    walletdiscount=0
+
+
+                
+
+                        
+                    }
+                    
+                }
+
+            }
+
+        })
+    }
+</script>

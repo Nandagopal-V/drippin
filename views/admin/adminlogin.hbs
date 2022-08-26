@@ -1,0 +1,145 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body,
+    html {
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .bg-img {}
+
+    /* Add styles to the form container */
+    .container {
+      position: absolute;
+      right: 500px;
+      top: 150px;
+      margin: 20px;
+      max-width: 300px;
+      padding: 16px;
+      background-color: white;
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for the submit button */
+    .btn {
+      background-color: #000000;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    .btn:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<div class="row">
+<div class="adminbg col-md-12 justify-content-center" style=" background-image: url(/img/banner/adminbg.jpg); height: 100vh; width: 100%; background-size: cover;">
+  <div class="bg-img col-sm-6 ">
+    <form action="/admin/adminlogin" method="post" class="container ">
+      <h1 style="margin-left: 20px;">Admin Login</h1>
+
+      <span id="maillogin"></span>
+      <input type="text" placeholder="Enter Email" name="mail">
+
+
+      <span id="passwordlogin"></span>
+      <input type="password" placeholder="Enter Password" name="password"><br>
+      {{#if loginError}}
+      <span id="loginError" style="color: red;">Incorrect Username or Password</span>
+      {{/if}}
+
+
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+{{!-- <div class="register-area ptb-100">
+  <h1 style="margin-left: 500px;">Admin Login</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-12 col-lg-6 col-xl-6 ms-auto me-auto">
+        <div class="login">
+          <div class="login-form-container" style="background-color: rgb(180, 180, 180);">
+            <div class="login-form">
+              <form action="#" method="post">
+                <input type="text" name="user-name" placeholder="Username">
+                <input type="password" name="user-password" placeholder="Password">
+                <div class="button-box">
+                  <div class="login-toggle-btn">
+                    <input type="checkbox">
+                    <label>Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                  </div>
+                  <button type="submit" class="default-btn floatright" style="margin-left: 200px;">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/animate.css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/themify-icons.css">
+<link rel="stylesheet" href="/css/pe-icon-7-stroke.css">
+<link rel="stylesheet" href="/css/icofont.css">
+<link rel="stylesheet" href="/css/meanmenu.min.css">
+<link rel="stylesheet" href="/css/jquery-ui.css">
+<link rel="stylesheet" href="/css/bundle.css">
+<link rel="stylesheet" href="/css/style1.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<script src="/javascripts/vendor/modernizr-3.11.7.min.js"></script>
+<script src="/javascripts/vendor/jquery-1.12.4.min.js"></script>
+<script src="/javascripts/popper.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/jquery.magnific-popup.min.js"></script>
+<script src="/javascripts/isotope.pkgd.min.js"></script>
+<script src="/javascripts/imagesloaded.pkgd.min.js"></script>
+<script src="/javascripts/jquery.counterup.min.js"></script>
+<script src="/javascripts/waypoints.min.js"></script>
+<script src="/javascripts/ajax-mail.js"></script>
+<script src="/javascripts/owl.carousel.min.js"></script>
+<script src="/javascripts/plugins.js"></script>
+<script src="/javascripts/main.js"></script> --}}

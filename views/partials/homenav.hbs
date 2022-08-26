@@ -1,0 +1,106 @@
+<header>
+    <div class="header-top-furniture wrapper-padding-2 res-header-sm">
+        <div class="container-fluid">
+            <div class="header-bottom-wrapper">
+                <div class="logo-2 furniture-logo ptb-30">
+                    <a href="/">
+                        {{!-- <img src="public/img/logo/2.png" alt=""> --}}
+                        {{!-- <h1 class="drippinheader">DRIPPIN</h1> --}}
+                                              <img src="/img/driplogo.png" alt="" style="height: auto; width: 200px; border: none;" >
+
+
+                    </a>
+                </div>
+                <div class="menu-style-2 furniture-menu menu-hover">
+                    <nav>
+
+                        <ul>
+                            {{!-- <h1 class="drippinheader">DRIPPIN</h1> --}}
+                            <li><a href="#">home</a>
+                            
+                            </li>
+                            <li><a href="#allp">Products</a>
+                            
+                            </li>
+                            <li><a href="#">shop</a>
+                           
+                            </li>
+                            <li><a href="#">blog</a>
+                             
+                            </li>
+                            <li><a href="#">contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-cart">
+                    <a class="icon-cart-furniture" href="/getCart">
+                        <i class="ti-shopping-cart"></i>
+                        <span class="badge bg-dark" id="cart-count">{{cartCount}}</span>
+                        
+                        {{!-- <span class="shop-count-furniture green">0</span> --}}
+                    </a>
+                    {{!-- <ul class="cart-dropdown">
+                       
+                    </ul> --}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li><a href="#">HOME</a>
+                                   
+                                </li>
+                                <li><a href="#">pages</a>
+                                   
+                                </li>
+                                <li><a href="#">shop</a>
+                                    
+                                </li>
+                                <li><a href="#">BLOG</a>
+                                    
+                                </li>
+                                <li><a href="contact.html"> Contact </a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom-furniture wrapper-padding-2 border-top-3">
+        <div class="container-fluid">
+            <div class="furniture-bottom-wrapper">
+                <div class="furniture-login">
+                 
+                </div>
+                <div class="furniture-search">
+                    <form action="#">
+                        <input placeholder="I am Searching for . . ." type="text">
+                        <button>
+                            <i class="ti-search"></i>
+                        </button>
+                    </form>
+                </div>
+             
+               
+
+            <div class="dropdown h-100">
+  <button class="btn  dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px;color: rgb(98, 91, 91);">
+   {{user.name}}
+  </button>
+  <ul class="dropdown-menu" >
+    <li><a class="dropdown-item" href="/userDetails">Profile</a></li>
+    <li><a class="dropdown-item" href="/orders">Order</a></li>
+    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+  </ul>
+</div>
+
+
+                
+            </div>
+        </div>
+    </div>
+</header>
+

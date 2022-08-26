@@ -1,0 +1,61 @@
+<div class="row">
+    
+<div class="col-sm-3 mt-2" style=";">
+
+<div class="card mx-auto text-center">
+  <img class="card-img-top mx-auto" src="/img/user.png" alt="" style="height: 200px; width: 170px; margin-top: 27px;">
+  <div class="card-block">
+    <h4 class="card-title" >{{user.name}}</h4>
+    <p class="card-text">Wallet : {{user.wallet}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{user.mail}}</li>
+    <li class="list-group-item">{{user.phone}}</li>
+    {{!-- <li class="list-group-item">Vestibulum at eros</li> --}}
+  </ul>
+  {{!-- <div class="card-block">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div> --}}
+</div>
+</div>
+
+
+<div class="col-sm-9 mt-2">
+  <table class="table" style="height: auto;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Pincode</th>
+      <th scope="col">Phone</th>
+      <th scope="col">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each address}}
+    <tr>
+      <td >{{this.name}}</td>
+      <td>{{this.address}}</td>
+      <td>{{this.pincode}}</td>
+      <td>{{this.mobile}}</td>
+      <td>
+      <a class="btn btn-danger" href="/userDeleteAddress/{{this._id}}">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+
+
+  </tbody>
+</table>
+</div>
+
+</div>
+
+<div class="row mb-3 justify-content-around">
+
+<a href="/userEditAddress" style="height: 45px;" class="col-sm-3 btn btn-primary">ADD ADDRESS</a>      
+<a href="/userEditDetails" style="height: 45px;" class="col-sm-3 btn btn-primary">UPDATE DETAILS</a>      
+<a href="/usereditPassword" style="height: 45px;" class="col-sm-3 btn btn-primary">UPDATE PASSWORD</a>      
+</div>

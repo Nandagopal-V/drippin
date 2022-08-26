@@ -1,0 +1,47 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Order ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Mobile</th>
+      {{!-- <th scope="col">Amount</th> --}}
+      <th scope="col">Payment</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      <th style="font-weight:300 ;">{{this.date}}</th>
+      <th style="font-weight:300 ;">{{this._id}}</th>
+      <th style="font-weight:300 ;">{{this.deliveryDetails.name}}</th>
+      <th style="font-weight:300 ;">{{this.deliveryDetails.address}}</th>
+      <th style="font-weight: 300;">{{this.deliveryDetails.mobile}}</th>
+      {{!-- <th style="font-weight:300 ;">{{this.totalAmount}}</th> --}}
+      <th style="font-weight:300 ;">{{this.paymentMethod}}</th>
+      <th style="font-weight: 300;">{{this.status}}</th>
+      <th ><a href="/view-order-products/{{this._id}}" class="btn btn-primary">VIEW ORDER</a></th>
+      <th ><a href="/view-invoice-products/{{this._id}}" class="btn btn-success">INVOICE</a></th>
+      {{#if this.cancelStatus}}
+
+      {{else}}
+      <th ><a href="/cancelOrder/{{this._id}}" class="btn btn-danger">CANCEL ORDER</a></th>
+      {{/if}}
+        {{#if this.returnStatus}}
+      <th ><a href="/returnOrder/{{this._id}}" class="btn btn-warning">RETURN ORDER</a></th>
+
+      {{else}}
+      
+      {{/if}}
+      
+
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>

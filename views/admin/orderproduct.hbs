@@ -1,0 +1,450 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title> Admin Dashboard</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="Mannatthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                <i class="ion-close"></i>
+            </button>
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center bg-logo">
+                    <a href="#" class="logo"><i class="mdi mdi-bowling text-success"></i>DRIPPIN</a>
+                    <!-- <a href="index.html" class="logo"><img src="/assets/images/logo.png" height="24" alt="logo"></a> -->
+                </div>
+            </div>
+            <div class="sidebar-user">
+                <img src="/assets/images/users/avatar-6.jpg" alt="user" class="rounded-circle img-thumbnail mb-1">
+                <h6 class="">ADMIN</h6>
+                <p class=" online-icon text-dark"><i class="mdi mdi-record text-success"></i>online</p>
+                <ul class="list-unstyled list-inline mb-0 mt-2">
+                    <li class="list-inline-item">
+                        <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Profile"><i
+                                class="dripicons-user text-purple"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Settings"><i
+                                class="dripicons-gear text-dark"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Log out"><i
+                                class="dripicons-power text-danger"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-inner slimscrollleft">
+
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+
+                        <li>
+                            <a href="/admin" class="waves-effect">
+                                <i class="dripicons-device-desktop"></i>
+                                <span> Dashboard <span
+                                        class="badge badge-pill badge-primary float-right"></span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/adminusermanagement" class="waves-effect"><i class="dripicons-to-do"></i><span> User
+                                    Management</span></a>
+                        </li>
+                            <li>
+                                <a href="/admin/addProduct" class="waves-effect"><i class="dripicons-jewel"></i><span>Add Product  </span></a>
+                            </li>
+                            <li>
+                                <a href="/admin/adminviewproduct" class="waves-effect"><i class="dripicons-jewel"></i><span>View Product</span></a>
+                            </li>
+                        <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-jewel"></i> <span> Manage Category</span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/categoryManagement">Add Category</a></li>
+                                    <li><a href="/admin/categoryDelete">Delete Brands</a></li>
+                                    <li><a href="/admin/typeDelete">Delete Types</a></li>
+                    
+                                </ul>
+                            </li>
+                               <li>
+                                <a href="/admin/orderManagement" class="waves-effect"><i class="dripicons-jewel"></i><span>Order Management</span></a>
+                            </li>
+                              <li>
+                                <a href="/admin/coupon" class="waves-effect"><i class="dripicons-jewel"></i><span>Coupon Management</span></a>
+                            </li>
+                               <li>
+                                <a href="/admin/banner" class="waves-effect"><i class="dripicons-jewel"></i><span>Banner</span></a>
+                            </li>
+                            
+
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div> <!-- end sidebarinner -->
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- Start right Content here -->
+
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+
+                <!-- Top Bar Start -->
+                <div class="topbar">
+
+                    <nav class="navbar-custom">
+
+                        <ul class="list-inline float-right mb-0">
+                            <!-- language-->
+                           
+
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
+                                    data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                    aria-expanded="false">
+                                    <img src="/assets/images/users/avatar-6.jpg" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Welcome</h5>
+                                    </div>
+                             
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/admin/logout"><i class="mdi mdi-logout m-r-5 text-muted"></i>
+                                        Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="float-left">
+                                <button class="button-menu-mobile open-left waves-light waves-effect">
+                                    <i class="mdi mdi-menu"></i>
+                                </button>
+                            </li>
+                            <li class="hide-phone app-search">
+                                <form role="search" class="">
+                                    <input type="text" placeholder="Search..." class="form-control">
+                                    <a href=""><i class="fas fa-search"></i></a>
+                                </form>
+                            </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </nav>
+                </div>
+                <!-- Top Bar End -->
+
+                <div class="page-content-wrapper ">
+
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <div class="btn-group float-right">
+                                        {{!-- <ol class="breadcrumb hide-phone p-0 m-0">
+                                            <li class="breadcrumb-item"><a href="#">Zoogler</a></li>
+                                            <li class="breadcrumb-item active">Dashboard</li>
+                                        </ol> --}}
+                                    </div>
+                                    <h4 class="page-title">Orders</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{!-- table section --}}
+
+
+
+
+
+
+
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">SI no</th>
+      <th scope="col">product</th>
+      <th scope="col">name</th>
+      <th scope="col">quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each productsinv}}
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+      <td > <img src=" /product-images/{{this.image.[0]}}" alt="" style="height: 150px; width: 150px;"> </td>
+      <td>{{this.name}}</td>
+      <td>{{this.quantity}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+    <div class="card">
+        <div class="card-header p-4">
+            <a class="pt-2 d-inline-block" href="" data-abc="true">drippin.online</a>
+            <div class="float-right">
+                <h6 class="mb-0" >              Date: {{productsinv.[0].date}} <br>
+                    Invoice id:{{productsinv.[0]._id}}
+</h6>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h5 class="mb-3">To:</h5>
+                    <h3 class="text-dark mb-1">{{productsinv.[0].address.name}}</h3>
+                    <div>{{productsinv.[0].address.address}}</div>
+                    {{!-- <div>Sikeston,New Delhi 110034</div> --}}
+                    <div>Pincode:{{productsinv.[0].address.pincode}}</div>
+                    <div>Phone: {{productsinv.[0].address.mobile}}</div>
+                </div>
+           
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">SI no</th>
+                            <th>Item</th>
+                            <th>Unit Price</th>
+                            <th class="right">Unit discount%</th>
+                            <th class="center">unit discount</th>
+                            <th class="right">quantity</th>
+                            <th class="right">total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each productsinv}}
+                        <tr>
+                            <td class="center">{{inc @index}}</td>
+                            <td class="left strong">{{this.name}}</td>
+                            <td class="left">₹{{this.mrp}}</td>
+                            <td class="right">{{this.discountpercent}}%</td>
+                            <td class="center">₹{{this.unitdiscount}}</td>
+                            <td class="right">{{this.quantity}}</td>
+                            <td class="right">₹{{this.grandTotal}}</td>
+                        </tr>
+                       {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+                </div>
+                <div class="col-lg-4 col-sm-5 ml-auto">
+                    <table class="table table-clear">
+                        <tbody>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Subtotal</strong>
+                                </td>
+                                <td class="right">₹{{products.[0].overallgrandtotal}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Discount</strong>
+                                </td>
+                                <td class="right">₹{{products.[0].overalldiscount}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Coupon</strong>
+                                </td>
+                                <td class="right">₹{{productsinv.[0].coupondiscount}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Wallet</strong>
+                                </td>
+                                <td class="right">₹{{productsinv.[0].walletdiscount}}</td>
+                            </tr>
+                        
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Total</strong>
+                                </td>
+                                <td class="right">
+                                    <strong class="text-dark">₹{{final}}</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white">
+            <p class="mb-0">Drippin.online</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       
+                            
+
+                        <!-- end page title end breadcrumb -->
+
+
+                        <!-- end row -->
+
+                     <!-- container -->
+
+                </div> <!-- Page content Wrapper -->
+
+            </div> <!-- content -->
+
+            <footer class="footer">
+                © 2022 DRIPPIN
+            </footer>
+
+        </div>
+        <!-- End Right content here -->
+
+    </div>
+    <!-- END wrapper -->
+
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+
+    <script src="/assets/plugins/chart.js/chart.min.js"></script>
+    <script src="/assets/pages/dashboard.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/app.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    body {
+
+        background-color: rgb(250, 250, 250);
+    }
+
+    .padding {
+
+        padding: 2rem !important;
+    }
+
+    .card {
+        margin-bottom: 30px;
+        border: none;
+        -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+        -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+        box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid #e6e6f2;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 15px;
+        line-height: 26px;
+        color: #3d405c;
+        margin: 0px 0px 15px 0px;
+        font-family: 'Circular Std Medium';
+    }
+
+    .text-dark {
+        color: #3d405c !important;
+    }
+</style>

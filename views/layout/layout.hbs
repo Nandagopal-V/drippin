@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Drippin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+        
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+		    {{#if userasset}}
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/magnific-popup.css">
+        <link rel="stylesheet" href="/css/animate.css">
+        <link rel="stylesheet" href="/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/css/themify-icons.css">
+        <link rel="stylesheet" href="/css/pe-icon-7-stroke.css">
+        <link rel="stylesheet" href="/css/icofont.css">
+        <link rel="stylesheet" href="/css/meanmenu.min.css">
+        <link rel="stylesheet" href="/css/jquery-ui.css">
+        <link rel="stylesheet" href="/css/bundle.css">
+        <link rel="stylesheet" href="/css/style1.css">
+        <link rel="stylesheet" href="/css/responsive.css">
+        <script src="/javascripts/vendor/modernizr-3.11.7.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+        
+        
+        {{/if}}
+
+        
+
+  </head>
+
+  <body>
+    {{#if index1}}
+    {{>mainnav}}
+    {{/if}}
+
+    {{#if index2}}
+    {{>homenav}}
+    {{/if}}
+
+    {{#if login1}}
+    {{>loginnav}}
+    {{/if}}
+
+    {{!-- {{#if signup1}}
+    {{>loginnav}}
+    {{/if}} --}}
+
+    {{{body}}}
+
+
+    {{#if footerstat}}
+    {{>footer}}
+    {{/if}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" >
+console.log('codesis here')</script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>        
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>        
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>        
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>  
+    {{!-- <script>
+      $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+    </script> --}}
+ 
+
+
+{{!-- template js --}}
+		    {{#if userasset}}
+    
+   <script src="/javascripts/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/javascripts/popper.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery.magnific-popup.min.js"></script>
+    <script src="/javascripts/isotope.pkgd.min.js"></script>
+    <script src="/javascripts/imagesloaded.pkgd.min.js"></script>
+    <script src="/javascripts/jquery.counterup.min.js"></script>
+    <script src="/javascripts/waypoints.min.js"></script>
+    <script src="/javascripts/ajax-mail.js"></script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script src="/javascripts/plugins.js"></script>
+    <script src="/javascripts/main.js"></script>
+    {{/if}}
+      
+      </body>
+</html>

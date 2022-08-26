@@ -1,0 +1,143 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+    <div class="card">
+        <div class="card-header p-4">
+            <a class="pt-2 d-inline-block" href="" data-abc="true">drippin.online</a>
+            <div class="float-right">
+                <h6 class="mb-0" >              Date: {{productsinv.[0].date}} <br>
+                    Invoice id:{{productsinv.[0]._id}}
+</h6>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h5 class="mb-3">To:</h5>
+                    <h3 class="text-dark mb-1">{{productsinv.[0].address.name}}</h3>
+                    <div>{{productsinv.[0].address.address}}</div>
+                    {{!-- <div>Sikeston,New Delhi 110034</div> --}}
+                    <div>Pincode:{{productsinv.[0].address.pincode}}</div>
+                    <div>Phone: {{productsinv.[0].address.mobile}}</div>
+                </div>
+           
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">SI no</th>
+                            <th>Item</th>
+                            <th>Unit Price</th>
+                            <th class="right">Unit discount%</th>
+                            <th class="center">unit discount</th>
+                            <th class="right">quantity</th>
+                            <th class="right">total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each productsinv}}
+                        <tr>
+                            <td class="center">{{inc @index}}</td>
+                            <td class="left strong">{{this.name}}</td>
+                            <td class="left">₹{{this.mrp}}</td>
+                            <td class="right">{{this.discountpercent}}%</td>
+                            <td class="center">₹{{this.unitdiscount}}</td>
+                            <td class="right">{{this.quantity}}</td>
+                            <td class="right">₹{{this.grandTotal}}</td>
+                        </tr>
+                       {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+                </div>
+                <div class="col-lg-4 col-sm-5 ml-auto">
+                    <table class="table table-clear">
+                        <tbody>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Subtotal</strong>
+                                </td>
+                                <td class="right">₹{{products.[0].overallgrandtotal}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Discount</strong>
+                                </td>
+                                <td class="right">₹{{products.[0].overalldiscount}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Coupon</strong>
+                                </td>
+                                <td class="right">₹{{productsinv.[0].coupondiscount}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Wallet</strong>
+                                </td>
+                                <td class="right">₹{{productsinv.[0].walletdiscount}}</td>
+                            </tr>
+                        
+                            <tr>
+                                <td class="left">
+                                    <strong class="text-dark">Total</strong>
+                                </td>
+                                <td class="right">
+                                    <strong class="text-dark">₹{{final}}</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white">
+            <p class="mb-0">Drippin.online</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+
+        background-color: #000;
+    }
+
+    .padding {
+
+        padding: 2rem !important;
+    }
+
+    .card {
+        margin-bottom: 30px;
+        border: none;
+        -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+        -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+        box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid #e6e6f2;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 15px;
+        line-height: 26px;
+        color: #3d405c;
+        margin: 0px 0px 15px 0px;
+        font-family: 'Circular Std Medium';
+    }
+
+    .text-dark {
+        color: #3d405c !important;
+    }
+</style>
